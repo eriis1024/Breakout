@@ -1,0 +1,43 @@
+Erik Riis (evr4)
+
+1. At least one variant of Breakout that you thought was interesting and what was interesting about it
+
+I thought the Vortex variant of Breakout was interesting due to the fact that the game play takes place in a 3D environment, where the ball seems to travels into the screen where the bricks are situated.
+I also liked the idea of equipping the paddle with an attachment that could shoot projectiles to also break the bricks. 
+
+
+2. A general description of the different levels you intend to build (perhaps with "pictures" of the block configurations)
+
+The first level I intend to build will include blocks situated towards the top of the screen and a paddle that can move along the bottom, along with a ball that bounces off of the paddle, blocks, and 
+boundaries of the screen excluding the bottom. I will have the blocks arranged in a rectangular shape with three rows and some spacing between each block. The the topmost row will consist of blocks 
+that must be hit three times in order to disappear, the middle row will consist of blocks that must be hit twice in order to disappear, and the bottom most row will consist of blocks that only need to 
+be hit once in order to disappear. There will be space between the blocks and the edges of the screen.
+The second level of the game will contain four rows of blocks where each block is spaced such that the are configured in a grid like pattern (as in the corners of each block will be touching the corners 
+of other). The top two rows will consist of blocks that must be hit 3 times and the bottom two rows will consist of blocks that must be hit two times.
+The third level will consist of 5 rows that take up the entire top portion of the screen and have little to no spacing between the edges of the screen. All the blocks will need to be hit three times in 
+order to disappear.
+Finally, throughout each level, blocks that drop upgrades when hit will be situated at different free spaces throughout the screen.
+
+
+3. Several different blocks you want to create
+
+I want to create blocks that must be hit different numbers of times before they disappear, including blocks that must be hit once, twice, or three times. I also want to include blocks that when they are hit
+drop different upgrades that can give special properties to the paddle or ball.
+
+
+4. Several different power ups you want to create
+
+I want upgrades to fall from special blocks and then activate if they make contact with the paddle. The upgrades I am planning to create include generating multiple balls, extending the width of the paddle, and 
+allowing the paddle to shoot projectiles that can also clear blocks. In terms of paddle abilities, I'd like to make it so if the edges of the paddle are hit the ball goes back in the same direction it came from 
+and allow the paddle to warp from one side of the screen to the other.
+
+
+5. Several different cheat keys you are planning to include
+
+I would like to include a cheat key that allows the user to skip levels in they become stuck on one, and I'd also like to have one that can slow down the speed of the ball so its easier to clear each level.
+
+
+6. Something extra you intend to add and why you think it is a substantial addition
+
+One extra feature I would like to add is that some of the upgrade blocks may drop, instead if upgrades, bombs that will end the game if they hit the paddle or cause the player to lose a life. I believe this is
+substantial as it makes it so the player not only has to worry about keeping the ball up and destroying all of the blocks, but they also must focus on avoiding certain items falling from the top of the screen.
