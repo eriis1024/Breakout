@@ -181,6 +181,12 @@ public class LevelTwo extends BlockBreakParent {
 		if (bomb3.getFill() == Color.RED) {
 			bomb3.setCenterY(bomb3.getCenterY() + UPGRADE_SPEED * elapsedTime);
 		}
+		if (Shape.intersect(laser, bombBlock3).getBoundsInLocal().getWidth() != -1 && bombBlock1.getFill() != Color.TRANSPARENT) {
+			BOUNCER_SPEED_Y = - BOUNCER_SPEED_Y; 
+			bombBlock3.setFill(Color.TRANSPARENT);
+			bomb3.setFill(Color.RED);
+			count++;
+		}
 		if (count >= 29) {
 			transitionToNextLevel();
 		} else if (myBouncer.getFill() == Color.TRANSPARENT && myBouncer1.getFill() == Color.TRANSPARENT) {

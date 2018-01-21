@@ -15,38 +15,37 @@ import javafx.scene.shape.Shape;
 import javafx.stage.Stage;
 
 public abstract class BlockBreakParent {
-	public static final String TITLE = "Breakout (Erik Riis)";
-	public static final int SIZE = 500;
-	public static final int FRAMES_PER_SECOND = 70;
-	public static final int MILLISECOND_DELAY = 1000 / FRAMES_PER_SECOND;
-	public static double SECOND_DELAY = 1.0 / FRAMES_PER_SECOND;
-	public static final Paint BACKGROUND = Color.WHITE;    
-	public static final String BOUNCER_IMAGE = "ball.gif";
-	public static int BOUNCER_SPEED_X = 0;
-	public static int BOUNCER_SPEED_Y = 180;
-	public static int BOUNCER_RADIUS = 6;
-	public static int BOUNCER_SPEED_X1 = 0;
-	public static int BOUNCER_SPEED_Y1 = 0;
-	public static int BOUNCER_SPEED_X2 = 0;
-	public static int BOUNCER_SPEED_Y2 = 0;
-	public static final Paint MOVER_COLOR = Color.BLACK;
-	public static final Paint MOVER_COLOR_LEFT = Color.GRAY;
-	public static final Paint MOVER_COLOR_RIGHT = Color.GRAY;
-	public static int MOVER_WIDTH = 50;
-	public static final int MOVER_HEIGHT = 5;
-	public static final int MOVER_SPEED = 19;
-	public static final int UPGRADE_SPEED = 80;
-	public static int LASER_SPEED = 0;
+	protected final String TITLE = "Breakout (Erik Riis)"; //how to make non-public, should they be static
+	protected final int SIZE = 500;
+	protected final int FRAMES_PER_SECOND = 70;
+	protected final int MILLISECOND_DELAY = 1000 / FRAMES_PER_SECOND;
+	protected double SECOND_DELAY = 1.0 / FRAMES_PER_SECOND;
+	protected final Paint BACKGROUND = Color.WHITE;    
+	protected int BOUNCER_SPEED_X = 0;
+	protected int BOUNCER_SPEED_Y = 180;
+	protected int BOUNCER_RADIUS = 6;
+	protected int BOUNCER_SPEED_X1 = 0;
+	protected int BOUNCER_SPEED_Y1 = 0;
+	protected int BOUNCER_SPEED_X2 = 0;
+	protected int BOUNCER_SPEED_Y2 = 0;
+	protected final Paint MOVER_COLOR = Color.BLACK;
+	protected final Paint MOVER_COLOR_LEFT = Color.GRAY;
+	protected final Paint MOVER_COLOR_RIGHT = Color.GRAY;
+	protected int MOVER_WIDTH = 50;
+	protected final int MOVER_HEIGHT = 5;
+	protected final int MOVER_SPEED = 19;
+	protected final int UPGRADE_SPEED = 80;
+	protected int LASER_SPEED = 0;
 
 	// some things we need to remember during our game
-	protected static Scene myScene;
-	protected static Stage myStage;
-	protected static KeyFrame myFrame;
-	protected static Timeline animation;
-	protected static Rectangle myMover;
-	protected static Rectangle myMoverLeft;
-	protected static Rectangle myMoverRight;
-	protected static Rectangle newMover;
+	protected Scene myScene;
+	protected Stage myStage;
+	protected KeyFrame myFrame;
+	protected static Timeline animation; //how to make non-static??????
+	protected Rectangle myMover;
+	protected Rectangle myMoverLeft;
+	protected Rectangle myMoverRight;
+	protected Rectangle newMover;
 	protected Rectangle myBlocks1;
 	protected Rectangle myBlocks2;
 	protected Rectangle myBlocks3;
@@ -59,16 +58,16 @@ public abstract class BlockBreakParent {
 	protected Ellipse bomb1;
 	protected Ellipse bomb2;
 	protected Ellipse bomb3;
-	protected static Circle myBouncer;
-	protected static Circle myBouncer1;
-	protected static Ellipse upgrade1;
-	protected static Ellipse upgrade2;
-	protected static Ellipse upgrade3;
-	protected static Circle laser;
-	protected static Rectangle cannon;
-	static ArrayList<Shape> blocks1 = new ArrayList<Shape>();
-	static ArrayList<Shape> blocks2 = new ArrayList<Shape>();
-	static ArrayList<Shape> blocks3 = new ArrayList<Shape>();
+	protected Circle myBouncer;
+	protected Circle myBouncer1;
+	protected Ellipse upgrade1;
+	protected Ellipse upgrade2;
+	protected Ellipse upgrade3;
+	protected Circle laser;
+	protected Rectangle cannon;
+	ArrayList<Shape> blocks1 = new ArrayList<Shape>();
+	ArrayList<Shape> blocks2 = new ArrayList<Shape>();
+	ArrayList<Shape> blocks3 = new ArrayList<Shape>();
 	protected int count = 0;
 	protected Label mouseLabel = new Label("Click the screen to play");
 
@@ -128,10 +127,10 @@ public abstract class BlockBreakParent {
 		Shape intersectNew = Shape.intersect(newMover, myBouncer);
 		if (intersect.getBoundsInLocal().getWidth() != -1) {
 			BOUNCER_SPEED_Y = - BOUNCER_SPEED_Y;
-		} else if (intersectLeft.getBoundsInLocal().getWidth() != -1) {
+		} else if (intersectLeft.getBoundsInLocal().getWidth() != -1 && myMoverLeft.getFill() != Color.TRANSPARENT) {
 			BOUNCER_SPEED_Y = - BOUNCER_SPEED_Y; 
 			BOUNCER_SPEED_X = -150;
-		} else if (intersectRight.getBoundsInLocal().getWidth() != -1) {
+		} else if (intersectRight.getBoundsInLocal().getWidth() != -1 && myMoverRight.getFill() != Color.TRANSPARENT) {
 			BOUNCER_SPEED_Y = - BOUNCER_SPEED_Y; 
 			BOUNCER_SPEED_X = 150;
 		} else if (intersectNew.getBoundsInLocal().getWidth() != -1 && newMover.getFill() == Color.BLACK) {
@@ -146,11 +145,11 @@ public abstract class BlockBreakParent {
 		if (intersect1.getBoundsInLocal().getWidth() != -1) {
 			BOUNCER_SPEED_Y1 = - BOUNCER_SPEED_Y1;
 		}
-		if (intersectLeft1.getBoundsInLocal().getWidth() != -1) {
+		if (intersectLeft1.getBoundsInLocal().getWidth() != -1 && myMoverLeft.getFill() != Color.TRANSPARENT) {
 			BOUNCER_SPEED_Y1 = - BOUNCER_SPEED_Y1; 
 			BOUNCER_SPEED_X1 = -150;
 		}
-		if (intersectRight1.getBoundsInLocal().getWidth() != -1) {
+		if (intersectRight1.getBoundsInLocal().getWidth() != -1 && myMoverRight.getFill() != Color.TRANSPARENT) {
 			BOUNCER_SPEED_Y1 = - BOUNCER_SPEED_Y1; 
 			BOUNCER_SPEED_X1 = 150;
 		}
@@ -342,15 +341,23 @@ public abstract class BlockBreakParent {
 				laser.setCenterY(cannon.getY() + 3);
 			}
 			if (Shape.intersect(laser, upgradeBlock1).getBoundsInLocal().getWidth() != -1 && upgradeBlock1.getFill() != Color.TRANSPARENT) {
-				BOUNCER_SPEED_Y = - BOUNCER_SPEED_Y; 
 				upgradeBlock1.setFill(Color.TRANSPARENT);
 				count++;
 			}
 			if (Shape.intersect(laser, upgradeBlock3).getBoundsInLocal().getWidth() != -1 && upgradeBlock3.getFill() != Color.TRANSPARENT) {
-				BOUNCER_SPEED_Y = - BOUNCER_SPEED_Y; 
 				upgradeBlock3.setFill(Color.TRANSPARENT);
 				count++;
 			}
+		}
+		if (Shape.intersect(laser, bombBlock1).getBoundsInLocal().getWidth() != -1 && bombBlock1.getFill() != Color.TRANSPARENT) {
+			bombBlock1.setFill(Color.TRANSPARENT);
+			bomb1.setFill(Color.RED);
+			count++;
+		}
+		if (Shape.intersect(laser, bombBlock2).getBoundsInLocal().getWidth() != -1 && bombBlock1.getFill() != Color.TRANSPARENT) {
+			bombBlock2.setFill(Color.TRANSPARENT);
+			bomb2.setFill(Color.RED);
+			count++;
 		}
 
 		//bomb upgrade
@@ -384,7 +391,6 @@ public abstract class BlockBreakParent {
 		if (bomb2.getFill() == Color.RED) {
 			bomb2.setCenterY(bomb2.getCenterY() + UPGRADE_SPEED * elapsedTime);
 		}
-
 
 
 		//paddle extension upgrade

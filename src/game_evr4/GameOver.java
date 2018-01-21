@@ -16,7 +16,6 @@ public class GameOver extends BlockBreakParent{
 	}
 	
 	public void setupFinal(int width, int height, Paint background) {
-		
 		animation.stop();
 		animation.getKeyFrames().clear();
 		

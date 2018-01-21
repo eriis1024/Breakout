@@ -16,7 +16,6 @@ public class Result extends BlockBreakParent{
 	}
 	
 	public void setupResult(int width, int height, Paint background) {
-		
 		animation.stop();
 		animation.getKeyFrames().clear();
 		

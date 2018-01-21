@@ -24,10 +24,11 @@ public class LevelThree extends BlockBreakParent {
 	public void setupGame (int width, int height, Paint background) {
 		// create one top level collection to organize the things in the scene
 		Group root = new Group();
+		
 		// create a place to see the shapes
 		myScene = new Scene(root, width, height, background);
 		myFrame = new KeyFrame(Duration.millis(MILLISECOND_DELAY),
-				e -> step(SECOND_DELAY));
+				e -> move(SECOND_DELAY));
 		myScene.setOnMouseClicked(e -> handleMouseInput(e.getButton()));
 
 		//create Bouncer
@@ -119,7 +120,7 @@ public class LevelThree extends BlockBreakParent {
 		upgradeBlock3 = new Rectangle(SIZE - 47, 180, 43, 18);
 		upgradeBlock3.setFill(Color.BLACK);
 		root.getChildren().add(upgradeBlock3);
-		upgrade3 = new Ellipse(SIZE - 47, 130, 12, 6);
+		upgrade3 = new Ellipse(SIZE - 47, 180, 12, 6);
 		upgrade3.setFill(Color.TRANSPARENT);
 		root.getChildren().add(upgrade3);
 
@@ -192,7 +193,7 @@ public class LevelThree extends BlockBreakParent {
 	}
 
 	// What to do each time a key is pressed
-	protected static void handleKeyInput (KeyCode code) {
+	protected void handleKeyInput (KeyCode code) {
 		if (code == KeyCode.RIGHT) {
 			myMover.setX(myMover.getX() + MOVER_SPEED);
 			myMoverLeft.setX(myMoverLeft.getX() + MOVER_SPEED);
