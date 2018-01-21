@@ -15,7 +15,7 @@ import javafx.scene.shape.Shape;
 import javafx.stage.Stage;
 
 public abstract class BlockBreakParent {
-	protected final String TITLE = "Breakout (Erik Riis)"; //how to make non-public, should they be static
+	protected final String TITLE = "Breakout (Erik Riis)"; 
 	protected final int SIZE = 500;
 	protected final int FRAMES_PER_SECOND = 70;
 	protected final int MILLISECOND_DELAY = 1000 / FRAMES_PER_SECOND;
@@ -41,7 +41,7 @@ public abstract class BlockBreakParent {
 	protected Scene myScene;
 	protected Stage myStage;
 	protected KeyFrame myFrame;
-	protected static Timeline animation; //how to make non-static??????
+	protected static Timeline animation; 
 	protected Rectangle myMover;
 	protected Rectangle myMoverLeft;
 	protected Rectangle myMoverRight;
