@@ -8,7 +8,6 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseButton;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
-import javafx.scene.shape.Circle;
 import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
@@ -29,34 +28,9 @@ public class LevelOne extends BlockBreakParent {
 		myFrame = new KeyFrame(Duration.millis(MILLISECOND_DELAY),
 				e -> move(SECOND_DELAY));
 		myScene.setOnMouseClicked(e -> handleMouseInput(e.getButton()));
-
-		//create Bouncer
-		myBouncer = new Circle(width / 2, height / 2 + 230, BOUNCER_RADIUS);
-		myBouncer.setFill(MOVER_COLOR);
-
-		//create Bouncers for upgrade 1
-		myBouncer1 = new Circle(width / 2, height / 2 + 230, BOUNCER_RADIUS);
-		myBouncer1.setFill(Color.TRANSPARENT);
-
-		//create paddle
-		myMover = new Rectangle(width / 2 - 25, height / 2 + 240, MOVER_WIDTH, MOVER_HEIGHT);
-		myMover.setFill(MOVER_COLOR);
-		myMoverLeft = new Rectangle (width / 2 - 35, height / 2 + 240, 15, MOVER_HEIGHT);
-		myMoverLeft.setFill(MOVER_COLOR_LEFT);
-		myMoverRight = new Rectangle (width / 2 + 25, height / 2 + 240, 15, MOVER_HEIGHT);
-		myMoverRight.setFill(MOVER_COLOR_RIGHT);
-
-		//create laser and canon
-		cannon = new Rectangle(width / 2, height / 2 + 225, 8, 15);
-		cannon.setFill(Color.TRANSPARENT);
-		laser = new Circle(width / 2 + 4, height / 2 + 228, 3);
-		laser.setFill(Color.TRANSPARENT);
-
-		//create new paddle
-		newMover = new Rectangle(myMover.getX() - 40, myMover.getY(), MOVER_WIDTH + 80, MOVER_HEIGHT);
-		newMover.setFill(Color.TRANSPARENT);
-
-		// order added to the group is the order in which they are drawn
+		
+		//add components that are common of every level
+		setupScene(SIZE, SIZE, BACKGROUND);
 		root.getChildren().add(myBouncer);
 		root.getChildren().add(myMover);
 		root.getChildren().add(myMoverLeft);

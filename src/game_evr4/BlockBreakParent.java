@@ -71,7 +71,32 @@ public abstract class BlockBreakParent {
 	protected int count = 0;
 	protected Label mouseLabel = new Label("Click the screen to play");
 
-	public void setupGame (int width, int height, Paint background) {
+	public void setupScene (int width, int height, Paint background) {
+		//create Bouncer
+		myBouncer = new Circle(width / 2, height / 2 + 230, BOUNCER_RADIUS);
+		myBouncer.setFill(MOVER_COLOR);
+
+		//create Bouncers for upgrade 1
+		myBouncer1 = new Circle(width / 2, height / 2 + 230, BOUNCER_RADIUS);
+		myBouncer1.setFill(Color.TRANSPARENT);
+
+		//create paddle
+		myMover = new Rectangle(width / 2 - 25, height / 2 + 240, MOVER_WIDTH, MOVER_HEIGHT);
+		myMover.setFill(MOVER_COLOR);
+		myMoverLeft = new Rectangle (width / 2 - 35, height / 2 + 240, 15, MOVER_HEIGHT);
+		myMoverLeft.setFill(MOVER_COLOR_LEFT);
+		myMoverRight = new Rectangle (width / 2 + 25, height / 2 + 240, 15, MOVER_HEIGHT);
+		myMoverRight.setFill(MOVER_COLOR_RIGHT);
+
+		//create laser and canon
+		cannon = new Rectangle(width / 2, height / 2 + 225, 8, 15);
+		cannon.setFill(Color.TRANSPARENT);
+		laser = new Circle(width / 2 + 4, height / 2 + 228, 3);
+		laser.setFill(Color.TRANSPARENT);
+
+		//create new paddle
+		newMover = new Rectangle(myMover.getX() - 40, myMover.getY(), MOVER_WIDTH + 80, MOVER_HEIGHT);
+		newMover.setFill(Color.TRANSPARENT);
 	}
 
 	protected void step (double elapsedTime) {
@@ -435,4 +460,3 @@ public abstract class BlockBreakParent {
 		}
 	}
 }
-
