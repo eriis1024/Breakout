@@ -34,5 +34,5 @@ This is definitely a design decision that I would have preferred and implemented
 classes is very beneficial.
 
  Assumptions: My code assumes that if the color of an object is set to transparent it will ignore any intersections with objects that are
- set to any other color than transparent.
+ set to any other color than transparent.  
  
