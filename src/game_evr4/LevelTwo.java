@@ -1,3 +1,10 @@
+/* Erik Riis
+ * This class sets up the second level of my game and depends on the BlockBreakParent class. The class
+ * sets the scene by calling setupScene from the parent class and adding specific block configurations. There is also
+ * a method called move that calls step from the parent class in order to animate the objects along with conditions to 
+ * transition to other levels and scenes. Finally, this class includes keycode commands specific to this level.
+ */
+
 package game_evr4;
 
 import javafx.animation.KeyFrame;
@@ -69,10 +76,10 @@ public class LevelTwo extends BlockBreakParent {
 			root.getChildren().add(myBlocks3);
 		}
 
-		upgradeBlock1 = new Rectangle(0, 180, 42, 20);
+		upgradeBlock1 = new Rectangle(252, 180, 42, 20);
 		upgradeBlock1.setFill(Color.BLACK);
 		root.getChildren().add(upgradeBlock1);
-		upgrade1 = new Ellipse(10, 180, 12, 6);
+		upgrade1 = new Ellipse(256, 180, 12, 6);
 		upgrade1.setFill(Color.TRANSPARENT);
 		root.getChildren().add(upgrade1);
 
@@ -83,10 +90,10 @@ public class LevelTwo extends BlockBreakParent {
 		upgrade2.setFill(Color.TRANSPARENT);
 		root.getChildren().add(upgrade2);
 
-		upgradeBlock3 = new Rectangle(252, 180, 42, 20);
+		upgradeBlock3 = new Rectangle(0, 180, 42, 20);
 		upgradeBlock3.setFill(Color.BLACK);
 		root.getChildren().add(upgradeBlock3);
-		upgrade3 = new Ellipse(256, 180, 12, 6);
+		upgrade3 = new Ellipse(10, 180, 12, 6);
 		upgrade3.setFill(Color.TRANSPARENT);
 		root.getChildren().add(upgrade3);
 

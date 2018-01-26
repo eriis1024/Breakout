@@ -1,3 +1,8 @@
+/* Erik Riis
+ * This class extends extends BlockBreakParent and sets up the Main Menu scene which includes directions for playing the game
+ * as well as a button that when clicked begins the first level
+ */
+
 package game_evr4;
 
 import javafx.event.ActionEvent;

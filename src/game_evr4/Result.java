@@ -1,3 +1,8 @@
+/* Erik Riis
+ * This class extends extends BlockBreakParent and sets up the Result scene which is called when the game is won. 
+ * A button is also included that returns the player to the Main Menu so that they can play the game again.
+ */
+
 package game_evr4;
 
 import javafx.event.ActionEvent;

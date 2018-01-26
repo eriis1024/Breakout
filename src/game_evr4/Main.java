@@ -1,3 +1,8 @@
+/* Erik Riis
+ * This class extends application and launches the the Main Menu which then transitions to the first 
+ * level of the game
+ */
+
 package game_evr4;
 
 import javafx.application.Application;

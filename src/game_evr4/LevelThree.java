@@ -1,3 +1,10 @@
+/* Erik Riis
+ * This class sets up the second level of my game and depends on the BlockBreakParent class. The class
+ * sets the scene by calling setupScene from the parent class and adding specific block configurations. There is also
+ * a method called move that calls step from the parent class in order to animate the objects along with conditions to 
+ * transition to other levels and scenes. Finally, this class includes keycode commands specific to this level.
+ */
+
 package game_evr4;
 
 import javafx.animation.KeyFrame;

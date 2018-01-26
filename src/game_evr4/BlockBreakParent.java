@@ -1,3 +1,10 @@
+/* Erik Riis
+ * This class contains all of the constants that each class uses and is meant to provide all of 
+ * the functionality that is common to each level. This includes setting up the scene and every element 
+ * that is common to each level and a step method which is called in each level to animate the objects 
+ * within the scene.
+ */
+
 package game_evr4;
 
 import java.util.ArrayList;
@@ -14,7 +21,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 import javafx.stage.Stage;
 
-public abstract class BlockBreakParent {
+public class BlockBreakParent {
 	protected final String TITLE = "Breakout (Erik Riis)"; 
 	protected final int SIZE = 500;
 	protected final int FRAMES_PER_SECOND = 70;
@@ -31,6 +38,10 @@ public abstract class BlockBreakParent {
 	protected final Paint MOVER_COLOR = Color.BLACK;
 	protected final Paint MOVER_COLOR_LEFT = Color.GRAY;
 	protected final Paint MOVER_COLOR_RIGHT = Color.GRAY;
+	protected final Paint BLOCK_COLOR_1 = Color.LIGHTBLUE;
+	protected final Paint BLOCK_COLOR_2 = Color.BLUE;
+	protected final Paint BLOCK_COLOR_3 = Color.DARKBLUE;
+	protected final Paint UPGRADE_BLOCK_COLOR = Color.BLACK;
 	protected int MOVER_WIDTH = 50;
 	protected final int MOVER_HEIGHT = 5;
 	protected final int MOVER_SPEED = 19;
@@ -69,9 +80,11 @@ public abstract class BlockBreakParent {
 	ArrayList<Shape> blocks2 = new ArrayList<Shape>();
 	ArrayList<Shape> blocks3 = new ArrayList<Shape>();
 	protected int count = 0;
+	protected Rectangle myBlock;
 	protected Label mouseLabel = new Label("Click the screen to play");
 
 	public void setupScene (int width, int height, Paint background) {
+		
 		//create Bouncer
 		myBouncer = new Circle(width / 2, height / 2 + 230, BOUNCER_RADIUS);
 		myBouncer.setFill(MOVER_COLOR);
@@ -318,7 +331,7 @@ public abstract class BlockBreakParent {
 			laser.setCenterX(cannon.getX() + 4);
 			laser.setCenterY(cannon.getY() + 3);
 		}
-		for (Shape i: blocks1) { //if ball hits a light blue block it disappears
+		for (Shape i: blocks1) { //if laser hits a light blue block it disappears
 			if (Shape.intersect(laser, i).getBoundsInLocal().getWidth() != -1 && i.getFill() != Color.TRANSPARENT) { 
 				i.setFill(Color.TRANSPARENT);
 				count++;
@@ -328,7 +341,7 @@ public abstract class BlockBreakParent {
 				laser.setCenterY(cannon.getY() + 3);
 			}
 		}
-		for (Shape i: blocks2) { //if ball hits a blue block it becomes light blue (must hit block twice before it disappears)
+		for (Shape i: blocks2) { //if laser hits a blue block it becomes light blue (must hit block twice before it disappears)
 			if (Shape.intersect(laser, i).getBoundsInLocal().getWidth() != -1 && i.getFill() != Color.LIGHTBLUE && i.getFill() != Color.TRANSPARENT) {
 				i.setFill(Color.LIGHTBLUE);
 				laser.setFill(Color.BLACK);
@@ -344,7 +357,7 @@ public abstract class BlockBreakParent {
 				laser.setCenterY(cannon.getY() + 3);
 			}
 		}
-		for (Shape i: blocks3) { //if ball hits a dark blue block it becomes blue (must hit block three times before it disappears)
+		for (Shape i: blocks3) { //if laser hits a dark blue block it becomes blue (must hit block three times before it disappears)
 			if (Shape.intersect(laser, i).getBoundsInLocal().getWidth() != -1 && i.getFill() != Color.BLUE && i.getFill() != Color.LIGHTBLUE && i.getFill() != Color.TRANSPARENT) {
 				i.setFill(Color.BLUE);
 				laser.setFill(Color.BLACK);
